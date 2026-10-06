@@ -1,0 +1,64 @@
+text,label
+"Where is my order?",ORDER_STATUS
+"can you tell me the status of my order",ORDER_STATUS
+"what is going on with my order",ORDER_STATUS
+"when does this order ship",ORDER_STATUS
+"when will my order arrive",ORDER_STATUS
+"my order is late",ORDER_STATUS
+"any updates on my order",ORDER_STATUS
+"please notify me when my order ships",ORDER_STATUS
+"is my order on time",ORDER_STATUS
+"how do I check the current status of my order",ORDER_STATUS
+"cancel every order",ORDER_CANCEL
+"how do I cancel my order",ORDER_CANCEL
+"Can I cancel my order",ORDER_CANCEL
+"is my order cancellable then cancel my order",ORDER_CANCEL
+"cancel my order",ORDER_CANCEL
+"I want to cancel my order",ORDER_CANCEL
+"cancel my order please",ORDER_CANCEL
+"cancel my order now",ORDER_CANCEL
+"how to cancel my order",ORDER_CANCEL
+"I need you to cancel the order I just placed",ORDER_CANCEL
+"bad product I want refund",REFUND_REQUEST
+"how to request for refund",REFUND_REQUEST
+"please initiate my refund",REFUND_REQUEST
+"I want to request a refund",REFUND_REQUEST
+"Order is cancelled how do I get my money back",REFUND_REQUEST
+"give me my money back",REFUND_REQUEST
+"please send my refund as soon as possible",REFUND_REQUEST
+"I want a refund on my last order",REFUND_REQUEST
+"I just want my money back",REFUND_REQUEST
+"do a refund for me",REFUND_REQUEST
+"My payment failed",PAYMENT_FAILED
+"my payment did not go through",PAYMENT_FAILED
+"my payment is not working fails evey time",PAYMENT_FAILED
+"my payment is not going through",PAYMENT_FAILED
+"my payment is not processing",PAYMENT_FAILED
+"my payment is not being accepted",PAYMENT_FAILED
+"card declined",PAYMENT_FAILED
+"my payment is declined",PAYMENT_FAILED
+"something is wrong with my payment it failed",PAYMENT_FAILED
+"why is payment failing",PAYMENT_FAILED
+"I cant login",ACCOUNT_ACCESS
+"I am unable to login",ACCOUNT_ACCESS
+"my account is locked",ACCOUNT_ACCESS
+"my account is disabled",ACCOUNT_ACCESS
+"my account is suspended",ACCOUNT_ACCESS
+"my account is not working cant log in",ACCOUNT_ACCESS
+"my account is not accessible",ACCOUNT_ACCESS
+"my account is not opening",ACCOUNT_ACCESS
+"my account is not letting me in",ACCOUNT_ACCESS
+"my account is not allowing me to login",ACCOUNT_ACCESS
+"how do I reset my password",PASSWORD_RESET
+"I forgot my password",PASSWORD_RESET
+"how do I change my password",PASSWORD_RESET
+"how do I recover my password",PASSWORD_RESET
+"how do I retrieve my password",PASSWORD_RESET
+"I want get my password back",PASSWORD_RESET
+"I forgot my password how do I recover it",PASSWORD_RESET
+"I want to reset my password I have lost it",PASSWORD_RESET
+"I need to reset my password",PASSWORD_RESET
+"I want to change my password",PASSWORD_RESET
+
+
+
