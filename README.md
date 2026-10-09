@@ -1,214 +1,172 @@
 # Tiny Intent Classifier
 
-A small NLP project for building and fine-tuning a lightweight pretrained language model on a custom intent-classification dataset.
+A lightweight Natural Language Processing (NLP) project for building, training, evaluating, and deploying a customer-support intent classification model.
 
-The goal is to understand the complete model-development process—from dataset design and validation to baseline modeling, fine-tuning, evaluation, and inference—while keeping the model and dataset small enough to run on consumer hardware.
+The goal is to develop a small, accurate, reproducible model that classifies incoming customer messages into predefined support intents.
 
-The initial use case is **customer-support intent classification**.
+The project follows an evidence-driven machine learning approach: validate the dataset, establish a baseline, evaluate generalization, and introduce additional complexity only when justified by experimental results.
 
-Given a customer message such as:
+## 1. Project Objectives
 
-```text
-Where is my package?
-```
+- Build a multiclass customer-support intent classifier.
+- Compare a simple machine learning baseline with a compact pretrained transformer.
+- Evaluate model performance on unseen customer messages.
+- Minimize overfitting, data leakage, and misleading evaluation results.
+- Support reproducible experimentation.
+- Keep the model lightweight enough for practical deployment.
 
-the model should predict:
+**Current status:** Environment setup and initial dataset cleaning are complete. No model has been trained or evaluated yet.
 
-```text
-ORDER_STATUS
-```
+## 2. Supported Intents
 
----
+The first version supports six mutually exclusive intent labels.
 
-## Project Status
+| Intent | Description | Example |
+|---|---|---|
+| `ORDER_STATUS` | Questions about order status, shipping, or delivery | Where is my order? |
+| `ORDER_CANCEL` | Requests or instructions to cancel an order | Please cancel my order |
+| `REFUND_REQUEST` | Requests to receive money back | I want a refund |
+| `PAYMENT_FAILED` | Problems with unsuccessful payments | My payment was declined |
+| `PASSWORD_RESET` | Requests to reset, recover, or change a password | I forgot my password |
+| `ACCOUNT_ACCESS` | Problems accessing an account | My account is locked |
 
-The project is currently in the **dataset development** stage.
+Detailed definitions are maintained in `docs/intent_definitions.md`.
 
-Completed:
+Each training example has one primary intent label.
 
-- Local Python development environment
-- Git repository setup
-- Core ML dependencies installed
-- PyTorch compute-device detection
-- Initial intent taxonomy
-- Intent labeling definitions
-- Initial balanced dataset
-- Dataset structure validation
+Additional capabilities, such as identifying potential sales leads or high-priority escalations, are outside the scope of the current version.
 
-Current dataset:
+## 3. Technology Stack
 
-```text
-60 examples
-6 intents
-10 examples per intent
-```
-
----
-
-## Intent Taxonomy
-
-The first version of the classifier contains six mutually exclusive intents:
-
-| Intent | Description |
+| Component | Technology |
 |---|---|
-| `ORDER_STATUS` | Questions about order status, shipping, delivery, or arrival |
-| `ORDER_CANCEL` | Requests to cancel an existing order |
-| `REFUND_REQUEST` | Requests to receive money back |
-| `PAYMENT_FAILED` | Failed, declined, or unsuccessful payment attempts |
-| `PASSWORD_RESET` | Password reset, recovery, or change requests |
-| `ACCOUNT_ACCESS` | Login or account-access problems not explicitly related to password reset |
+| Programming language | Python 3.12 |
+| Deep learning | PyTorch |
+| NLP models | Hugging Face Transformers |
+| Dataset processing | pandas, Hugging Face Datasets |
+| Traditional machine learning | scikit-learn |
+| Version control | Git |
+| Development environment | Python virtual environment |
 
-Detailed labeling rules are maintained in:
+### Verified development environment
 
-```text
-docs/intent_definitions.md
-```
+The initial development environment was tested on macOS with:
 
-These definitions are used to reduce ambiguity and keep dataset labeling consistent.
+| Package | Verified version |
+|---|---|
+| Python | 3.12.15 |
+| PyTorch | 2.14.1 |
+| Transformers | 5.18.0 |
+| Datasets | 5.1.0 |
+| scikit-learn | 1.9.1 |
 
----
+These versions describe the verified development environment. Compatibility with other operating systems and hardware configurations has not yet been independently tested.
 
-## Project Structure
+The installed dependencies are recorded in `requirements.txt`.
 
-Current structure:
+## 4. Project Structure
 
 ```text
 tiny-intent-classifier/
-│
 ├── data/
 │   └── raw/
 │       └── intents.csv
-│
 ├── docs/
 │   └── intent_definitions.md
-│
 ├── src/
+│   ├── verify_setup.py
 │   ├── validate_data.py
-│   └── verify_setup.py
-│
+│   └── check_similarity.py
 ├── .gitignore
-├── README.md
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
-Generated model checkpoints and local virtual environments are intentionally excluded from Git.
+Additional directories and source files will be documented as they are created.
 
----
+## 5. Environment Setup
 
-# Setup
+The project is intended to support macOS, Linux, and Windows.
 
-The project uses Python **3.12**.
+Python 3.12 is the currently verified version.
 
-Python 3.12 was chosen instead of relying on the newest system Python because machine-learning libraries such as PyTorch and Transformers may not immediately support newly released Python versions.
-
-The exact package versions used by the project are recorded in:
-
-```text
-requirements.txt
-```
-
-## 1. Clone the repository
+### 5.1 Clone the repository
 
 ```bash
 git clone https://github.com/chandan177/tiny-intent-classifier.git
 cd tiny-intent-classifier
 ```
 
----
+### 5.2 Check Python
 
-## 2. Install Python 3.12
-
-Check whether Python 3.12 is already available:
+On macOS or Linux:
 
 ```bash
-python3.12 --version
+python3 --version
 ```
 
-If it is installed, continue to the next section.
-
-### macOS
-
-Python can be installed using Homebrew:
-
-```bash
-brew install python@3.12
-```
-
-### Windows
-
-Install Python 3.12 using the official Python installer or another Python version manager.
-
-During installation, ensure Python is available from the command line.
-
-Verify with:
+On Windows:
 
 ```powershell
 py -3.12 --version
 ```
 
-### Linux
+Install Python 3.12 if it is not available.
 
-Installation depends on the Linux distribution.
+Python can be downloaded from https://www.python.org/downloads/.
 
-Use the distribution's package manager or a Python version manager to install Python 3.12, then verify:
+### 5.3 Create a virtual environment
 
-```bash
-python3.12 --version
-```
-
-The important requirement is **Python 3.12**, not a particular installation method.
-
----
-
-## 3. Create a virtual environment
-
-A virtual environment isolates this project's dependencies from other Python projects.
-
-### macOS / Linux
+On macOS or Linux:
 
 ```bash
 python3.12 -m venv .venv
-source .venv/bin/activate
 ```
 
-### Windows PowerShell
+On Windows:
 
 ```powershell
 py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
 ```
 
-After activation, verify:
+If the appropriate Python interpreter uses a different command on your system, use that interpreter instead.
+
+### 5.4 Activate the virtual environment
+
+On macOS or Linux:
 
 ```bash
-python --version
+source .venv/bin/activate
 ```
 
-The output should report Python 3.12.x.
+On Windows PowerShell:
 
----
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
 
-## 4. Install dependencies
+On Windows Command Prompt:
 
-With the virtual environment activated:
+```cmd
+.venv\Scripts\activate.bat
+```
+
+After activation, the terminal should indicate that the virtual environment is active.
+
+### 5.5 Install dependencies
 
 ```bash
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-The project currently uses:
+**Compatibility note:** `requirements.txt` was generated from the macOS development environment. Platform-specific dependencies or PyTorch installation requirements may differ on Windows and Linux.
 
-- PyTorch
-- Hugging Face Transformers
-- Hugging Face Datasets
-- scikit-learn
+For PyTorch installation instructions, refer to https://pytorch.org/get-started/locally/.
 
-Additional transitive dependencies are captured in `requirements.txt`.
+Cross-platform dependency installation has not yet been fully validated.
 
----
-
-## 5. Verify the environment
+### 5.6 Verify the environment
 
 Run:
 
@@ -216,148 +174,244 @@ Run:
 python src/verify_setup.py
 ```
 
-The script reports the installed library versions and determines which PyTorch compute backend is available.
+The script reports installed library versions and selects a supported training device.
 
-The training device depends on the machine.
+Device selection priority:
 
-Examples include:
+1. CUDA — supported NVIDIA GPUs
+2. MPS — supported Apple GPUs
+3. CPU — fallback when no supported GPU is available
+
+The verified macOS environment produced:
 
 ```text
-Apple Silicon Mac → MPS
-NVIDIA GPU        → CUDA
-Other systems     → CPU
+PyTorch version: 2.14.1
+scikit-learn version: 1.9.1
+Transformers version: 5.18.0
+Datasets version: 5.1.0
+MPS built: True
+MPS available: True
+Training device: mps
 ```
 
-The project should not assume that MPS is available simply because development originally started on a Mac.
+This confirms that MPS was available and selected on the tested Mac. CUDA and CPU fallback behavior remain unverified on other hardware.
 
-### Compute backend
+## 6. Dataset
 
-PyTorch can execute model operations using different hardware backends.
+### 6.1 Dataset location
 
-**MPS** provides GPU acceleration on supported Apple Silicon Macs through Apple's Metal technology.
-
-**CUDA** provides GPU acceleration on supported NVIDIA GPUs.
-
-**CPU** provides the fallback when a supported GPU backend is unavailable.
-
-Model code should therefore select the best available device rather than hard-coding a specific platform.
-
----
-
-# Dataset
-
-The raw dataset is stored at:
+The dataset is stored at:
 
 ```text
 data/raw/intents.csv
 ```
 
-Schema:
+### 6.2 Dataset format
+
+The dataset uses CSV format with two columns:
+
+| Column | Description |
+|---|---|
+| `text` | Customer message |
+| `label` | Primary intent classification |
+
+Example:
 
 ```csv
 text,label
 "Where is my order?",ORDER_STATUS
+"Please cancel my order",ORDER_CANCEL
+"I want a refund",REFUND_REQUEST
+"My payment failed",PAYMENT_FAILED
+"I forgot my password",PASSWORD_RESET
+"My account is locked",ACCOUNT_ACCESS
 ```
 
-Each row represents one customer message and one target intent.
+### 6.3 Dataset history and statistics
 
-The current dataset contains:
+The initial dataset contained 60 manually written examples.
 
-```text
-Total rows: 60
+It was subsequently expanded to 360 records.
 
-ACCOUNT_ACCESS:   10
-ORDER_CANCEL:     10
-ORDER_STATUS:     10
-PASSWORD_RESET:   10
-PAYMENT_FAILED:   10
-REFUND_REQUEST:   10
-```
+Two rounds of duplicate removal were performed:
 
-At this stage the dataset is intentionally balanced so differences in class frequency do not dominate the initial experiment.
+- **First round:** Two duplicate messages were removed using case-insensitive and whitespace-trimmed matching.
+- **Second round:** Six additional duplicates were removed after extending normalization to ignore punctuation and standardize whitespace.
 
----
+The current verified dataset contains **352 records**.
 
-## Dataset Validation
+| Intent | Records |
+|---|---:|
+| `ORDER_STATUS` | 59 |
+| `ORDER_CANCEL` | 59 |
+| `REFUND_REQUEST` | 59 |
+| `PAYMENT_FAILED` | 60 |
+| `PASSWORD_RESET` | 57 |
+| `ACCOUNT_ACCESS` | 58 |
+| **Total** | **352** |
 
-Basic dataset structure can be checked with:
+The dataset remains nearly balanced across the six classes.
+
+### 6.4 Dataset validation
+
+Run:
 
 ```bash
 python src/validate_data.py
 ```
 
-The validation currently checks that the CSV can be parsed and reports the number of observations belonging to each class.
+The validation script checks:
 
-Current verified result:
+- Total record count
+- Distribution across intent labels
+- Missing text and labels
+- Labels outside the six supported intents
+- Duplicate messages after case normalization, punctuation removal, and whitespace standardization
 
-```text
-Total rows: 60
-ACCOUNT_ACCESS: 10
-ORDER_CANCEL: 10
-ORDER_STATUS: 10
-PASSWORD_RESET: 10
-PAYMENT_FAILED: 10
-REFUND_REQUEST: 10
-```
-
----
-
-# Model Direction
-
-The project will use a **small pretrained NLP encoder** rather than training a language model from scratch.
-
-The current candidate is:
+The latest verified results are:
 
 ```text
-prajjwal1/bert-tiny
+Total records: 352
+
+PAYMENT_FAILED    60
+ORDER_STATUS      59
+ORDER_CANCEL      59
+REFUND_REQUEST    59
+ACCOUNT_ACCESS    58
+PASSWORD_RESET    57
+
+Missing text values: 0
+Missing label values: 0
+Invalid labels: 0
+Duplicate messages: 0
+
+Records after deduplication: 352
 ```
 
-The intended architecture is:
+**Important:** Structural validation does not establish that all labels are semantically correct or that the dataset is free from meaningful paraphrases.
 
-```text
-Customer message
-       ↓
-   Tokenizer
-       ↓
-Tiny pretrained BERT encoder
-       ↓
-Classification head
-       ↓
-Predicted intent
+### 6.5 Near-duplicate detection
+
+Run:
+
+```bash
+python src/check_similarity.py
 ```
 
-The pretrained encoder already contains general language representations. Fine-tuning will adapt those representations to our customer-support intent taxonomy.
+This script uses:
 
-The final model choice is not considered validated until it is compared against an appropriate simpler baseline on held-out data.
+- Character-level TF-IDF features
+- Character n-grams of length 2–4
+- Cosine similarity
+- A heuristic similarity threshold of 0.85
 
----
+The script identifies pairs of messages with similar character patterns and displays their similarity scores.
 
-# Development Principles
+In the first similarity analysis of the 358-record dataset, six pairs were identified above the threshold.
 
-This project follows several rules intended to keep experiments scientifically useful:
+All six pairs differed only in punctuation or capitalization and had matching intent labels.
 
-- Dataset labels must follow explicit intent definitions.
-- Ambiguous examples should be corrected rather than silently accepted.
-- Training, validation, and test data must remain appropriately separated.
-- A simple baseline must be established before accepting a more complex model.
-- Model quality must be measured on unseen data.
-- Training performance alone is not evidence of generalization.
-- Changes should be evaluated experimentally rather than assumed to improve the model.
-- Model configuration, dependencies, data-selection logic, and evaluation methods should remain reproducible.
+These six duplicate records were removed, producing the current 352-record dataset.
 
----
+The similarity threshold is a screening heuristic, not a validated semantic-equivalence threshold.
 
-# Current Milestone
+A new similarity analysis of the cleaned 352-record dataset has not yet been verified.
 
-The initial dataset contains **60 manually reviewed examples** across six balanced intent classes.
+## 7. Model Development
 
-The next dataset milestone under consideration is:
+### 7.1 Baseline model
 
-```text
-50 examples per intent
-6 intents
-----------------------
-300 total examples
-```
+A simple text classification baseline is planned using:
 
-This target is not yet a model-performance claim. It is an initial dataset-development target that can be revised based on validation evidence.
+- TF-IDF text features
+- Logistic regression
+
+This baseline will establish a reference for evaluating whether a more complex model provides meaningful improvements.
+
+**Status:** Not implemented.
+
+### 7.2 Transformer candidate
+
+The initial compact transformer candidate is:
+
+`prajjwal1/bert-tiny`
+
+Reference: https://huggingface.co/prajjwal1/bert-tiny
+
+The model was selected as a candidate because of its small architecture.
+
+A slow BERT tokenizer has been successfully loaded and tested with the candidate repository.
+
+However, the default `AutoTokenizer` path encountered a compatibility error with the installed Transformers version. Model weights and full training compatibility have not yet been verified.
+
+**Status:** Candidate identified; training not started.
+
+### 7.3 Model evaluation
+
+Evaluation methodology and success criteria have not yet been finalized.
+
+The project will require evidence of performance on unseen messages before selecting a final model.
+
+Training accuracy alone will not be considered sufficient evidence of generalization.
+
+## 8. Development Principles
+
+The project follows these principles:
+
+**Data quality first:** Validate the dataset and investigate labeling errors before training.
+
+**Prevent data leakage:** Ensure model evaluation does not improperly benefit from training data or information unavailable at prediction time.
+
+**Start simple:** Establish a baseline before adopting more complex architectures.
+
+**Evaluate objectively:** Use held-out results and metrics appropriate to the classification objective.
+
+**Reproducibility:** Preserve data definitions, transformations, random seeds, model configurations, and evaluation methodology as they are established.
+
+**Evidence-based improvements:** Accept model changes based on measured out-of-sample improvements rather than assumptions.
+
+## 9. Project Progress
+
+| Milestone | Status |
+|---|---|
+| Initialize project repository | Complete locally |
+| Configure Python environment | Complete |
+| Verify PyTorch and required libraries | Complete on macOS |
+| Implement cross-platform device selection | Complete; macOS tested |
+| Define six customer-support intents | Complete |
+| Create initial dataset | Complete |
+| Expand dataset | Complete |
+| Validate dataset structure | Complete |
+| Remove exact duplicate messages | Complete |
+| Identify punctuation-only duplicates | Complete |
+| Remove punctuation-only duplicates | Complete |
+| Verify cleaned dataset (352 records) | Complete |
+| Review semantic labels and remaining near-duplicates | Pending |
+| Create train/validation/test splits | Pending |
+| Train baseline model | Pending |
+| Verify transformer model compatibility | Pending |
+| Fine-tune transformer | Pending |
+| Evaluate and compare models | Pending |
+| Save and deploy selected model | Pending |
+
+## 10. Reproducibility and Limitations
+
+The project currently has a structurally validated CSV dataset and a working macOS development environment.
+
+The following limitations remain:
+
+- Dataset examples have not yet undergone a comprehensive semantic-label review.
+- Paraphrase similarity has not been systematically assessed.
+- The cleaned dataset has not yet been rerun through the similarity analysis.
+- No train/validation/test split has been established.
+- No baseline or transformer model has been trained.
+- No model accuracy, F1 score, inference latency, or other performance metric has been measured.
+- Installation and execution have not been verified across all supported operating systems.
+
+Model performance claims will be documented only after reproducible evaluation.
+
+## 11. Repository
+
+GitHub: https://github.com/chandan177/tiny-intent-classifier
+
+This README will be updated as project milestones are completed and verified.

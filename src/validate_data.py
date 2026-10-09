@@ -1,26 +1,46 @@
-"""
-This script validates the data in the intents.csv file. It checks for the following:
-1. The file exists and is readable.
-2. The file has the correct format (two columns: text and label).
-3. The labels are consistent and there are no unexpected labels.
-"""
+import pandas as pd
 
-import csv
-from collections import Counter
+df = pd.read_csv("data/raw/intents.csv")
 
-# define the path to the intents.csv file
-DATA_PATH = "data/raw/intents.csv"
+valid_labels = {
+    "ORDER_STATUS",
+    "ORDER_CANCEL",
+    "REFUND_REQUEST",
+    "PAYMENT_FAILED",
+    "PASSWORD_RESET",
+    "ACCOUNT_ACCESS",
+}
 
-# Check if the file exists and is readable
-with open(DATA_PATH, encoding="utf-8") as file:
-    rows = list(csv.DictReader(file))
+print("Total records:", len(df))
+print("\nClass distribution:")
+print(df["label"].value_counts())
 
-# Check if the file has the correct format (two columns: text and label)
-print("Total rows:", len(rows))
+print("\nMissing values:")
+print(df[["text", "label"]].isna().sum())
 
-# Check for unexpected labels
-counts = Counter(row["label"] for row in rows)
+print("\nInvalid labels:")
+print(df.loc[~df["label"].isin(valid_labels), "label"].value_counts())
 
-# Print the counts of each label
-for label, count in sorted(counts.items()):
-    print(f"{label}: {count}")
+# Normalize text for duplicate detection without changing original messages.
+# Remove punctuation, standardize case, and collapse repeated whitespace.
+normalized = (
+    df["text"]
+    .fillna("")
+    .str.lower()
+    .str.replace(r"[^\w\s]", "", regex=True)
+    .str.split()
+    .str.join(" ")
+)
+
+print("\nDuplicate messages:", normalized.duplicated().sum())
+
+duplicates = df[normalized.duplicated(keep=False)].copy()
+
+print("\nDuplicate records:")
+print(duplicates[["text", "label"]].to_string())
+
+df = df.loc[~normalized.duplicated()].copy()
+
+df.to_csv("data/raw/intents.csv", index=False)
+
+print("\nRecords after deduplication:", len(df))

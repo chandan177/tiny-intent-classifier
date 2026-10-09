@@ -1,64 +1,353 @@
 text,label
-"Where is my order?",ORDER_STATUS
-"can you tell me the status of my order",ORDER_STATUS
-"what is going on with my order",ORDER_STATUS
-"when does this order ship",ORDER_STATUS
-"when will my order arrive",ORDER_STATUS
-"my order is late",ORDER_STATUS
-"any updates on my order",ORDER_STATUS
-"please notify me when my order ships",ORDER_STATUS
-"is my order on time",ORDER_STATUS
-"how do I check the current status of my order",ORDER_STATUS
-"cancel every order",ORDER_CANCEL
-"how do I cancel my order",ORDER_CANCEL
-"Can I cancel my order",ORDER_CANCEL
-"is my order cancellable then cancel my order",ORDER_CANCEL
-"cancel my order",ORDER_CANCEL
-"I want to cancel my order",ORDER_CANCEL
-"cancel my order please",ORDER_CANCEL
-"cancel my order now",ORDER_CANCEL
-"how to cancel my order",ORDER_CANCEL
-"I need you to cancel the order I just placed",ORDER_CANCEL
-"bad product I want refund",REFUND_REQUEST
-"how to request for refund",REFUND_REQUEST
-"please initiate my refund",REFUND_REQUEST
-"I want to request a refund",REFUND_REQUEST
-"Order is cancelled how do I get my money back",REFUND_REQUEST
-"give me my money back",REFUND_REQUEST
-"please send my refund as soon as possible",REFUND_REQUEST
-"I want a refund on my last order",REFUND_REQUEST
-"I just want my money back",REFUND_REQUEST
-"do a refund for me",REFUND_REQUEST
-"My payment failed",PAYMENT_FAILED
-"my payment did not go through",PAYMENT_FAILED
-"my payment is not working fails evey time",PAYMENT_FAILED
-"my payment is not going through",PAYMENT_FAILED
-"my payment is not processing",PAYMENT_FAILED
-"my payment is not being accepted",PAYMENT_FAILED
-"card declined",PAYMENT_FAILED
-"my payment is declined",PAYMENT_FAILED
-"something is wrong with my payment it failed",PAYMENT_FAILED
-"why is payment failing",PAYMENT_FAILED
-"I cant login",ACCOUNT_ACCESS
-"I am unable to login",ACCOUNT_ACCESS
-"my account is locked",ACCOUNT_ACCESS
-"my account is disabled",ACCOUNT_ACCESS
-"my account is suspended",ACCOUNT_ACCESS
-"my account is not working cant log in",ACCOUNT_ACCESS
-"my account is not accessible",ACCOUNT_ACCESS
-"my account is not opening",ACCOUNT_ACCESS
-"my account is not letting me in",ACCOUNT_ACCESS
-"my account is not allowing me to login",ACCOUNT_ACCESS
-"how do I reset my password",PASSWORD_RESET
-"I forgot my password",PASSWORD_RESET
-"how do I change my password",PASSWORD_RESET
-"how do I recover my password",PASSWORD_RESET
-"how do I retrieve my password",PASSWORD_RESET
-"I want get my password back",PASSWORD_RESET
-"I forgot my password how do I recover it",PASSWORD_RESET
-"I want to reset my password I have lost it",PASSWORD_RESET
-"I need to reset my password",PASSWORD_RESET
-"I want to change my password",PASSWORD_RESET
-
-
-
+Where is my order?,ORDER_STATUS
+can you tell me the status of my order,ORDER_STATUS
+what is going on with my order,ORDER_STATUS
+when does this order ship,ORDER_STATUS
+when will my order arrive,ORDER_STATUS
+my order is late,ORDER_STATUS
+any updates on my order,ORDER_STATUS
+please notify me when my order ships,ORDER_STATUS
+is my order on time,ORDER_STATUS
+how do I check the current status of my order,ORDER_STATUS
+Track my package.,ORDER_STATUS
+Check order status.,ORDER_STATUS
+Where’s my stuff?,ORDER_STATUS
+Find my order.,ORDER_STATUS
+Order status please.,ORDER_STATUS
+What's the status of my order?,ORDER_STATUS
+I want to track my delivery.,ORDER_STATUS
+Has my package arrived yet?,ORDER_STATUS
+Is my order on its way?,ORDER_STATUS
+Can you look up order number 4829?,ORDER_STATUS
+Tracking info for ID #99212.,ORDER_STATUS
+What is the status of invoice 5543?,ORDER_STATUS
+Can you check reference code 00293?,ORDER_STATUS
+"Here is my order number, where is it?",ORDER_STATUS
+Please track shipment number 883921.,ORDER_STATUS
+Status on receipt number 9482?,ORDER_STATUS
+"I have my order ID, can you track it?",ORDER_STATUS
+Where is order reference 77482?,ORDER_STATUS
+Can you trace order ID 11029?,ORDER_STATUS
+Has my order shipped yet?,ORDER_STATUS
+When will my package get here?,ORDER_STATUS
+What is the estimated delivery date?,ORDER_STATUS
+Did my order leave the warehouse?,ORDER_STATUS
+Has the carrier picked up my package?,ORDER_STATUS
+Is my package still in transit?,ORDER_STATUS
+When should I expect my delivery?,ORDER_STATUS
+Has my order been dispatched?,ORDER_STATUS
+Where is my delivery driver right now?,ORDER_STATUS
+How long until my order arrives?,ORDER_STATUS
+Any updates on my purchase?,ORDER_STATUS
+Is there a delay with my shipment?,ORDER_STATUS
+Why is my order still processing?,ORDER_STATUS
+Did my order status change today?,ORDER_STATUS
+What does it mean that my order is pending?,ORDER_STATUS
+I need a status update on my cart purchase.,ORDER_STATUS
+Has my order been approved yet?,ORDER_STATUS
+Why hasn't my order shipped out?,ORDER_STATUS
+Is my shipment stuck somewhere?,ORDER_STATUS
+Give me the latest update on my delivery.,ORDER_STATUS
+Did my order go through successfully?,ORDER_STATUS
+I didn't get a tracking link for my order.,ORDER_STATUS
+Where is the package I bought yesterday?,ORDER_STATUS
+Was my order sent out already?,ORDER_STATUS
+I'm looking for the tracking status of my items.,ORDER_STATUS
+Can you confirm if my order is on the delivery truck?,ORDER_STATUS
+I need to see the progress of my shipment.,ORDER_STATUS
+Is my package scheduled for delivery today?,ORDER_STATUS
+Did my order clear processing yet?,ORDER_STATUS
+Where is the order I placed last week?,ORDER_STATUS
+cancel every order,ORDER_CANCEL
+how do I cancel my order,ORDER_CANCEL
+Can I cancel my order,ORDER_CANCEL
+is my order cancellable then cancel my order,ORDER_CANCEL
+cancel my order,ORDER_CANCEL
+I want to cancel my order,ORDER_CANCEL
+cancel my order please,ORDER_CANCEL
+cancel my order now,ORDER_CANCEL
+how to cancel my order,ORDER_CANCEL
+I need you to cancel the order I just placed,ORDER_CANCEL
+I want to cancel an order.,ORDER_CANCEL
+Can I cancel my purchase?,ORDER_CANCEL
+Please stop my order.,ORDER_CANCEL
+I need to terminate my order.,ORDER_CANCEL
+Cancel order number 4829.,ORDER_CANCEL
+Can you cancel transaction ID #99212?,ORDER_CANCEL
+Please void invoice 5543.,ORDER_CANCEL
+I want to cancel reference code 00293.,ORDER_CANCEL
+Can you delete my order from the system?,ORDER_CANCEL
+"I changed my mind, please cancel.",ORDER_CANCEL
+I no longer want these items.,ORDER_CANCEL
+I need to call off this delivery.,ORDER_CANCEL
+Please withdraw my recent order.,ORDER_CANCEL
+"I bought the wrong thing, cancel it.",ORDER_CANCEL
+Is it too late to cancel my order?,ORDER_CANCEL
+How do I cancel a shipment?,ORDER_CANCEL
+I want to revoke my order.,ORDER_CANCEL
+Can I drop this item from my order?,ORDER_CANCEL
+Please cancel my order before it ships.,ORDER_CANCEL
+Can you cancel an order that hasn't shipped yet?,ORDER_CANCEL
+"I accidentally ordered twice, please cancel one.",ORDER_CANCEL
+Please reverse my purchase.,ORDER_CANCEL
+I need to cancel my cart order.,ORDER_CANCEL
+Can you halt my shipment?,ORDER_CANCEL
+I want to back out of this order.,ORDER_CANCEL
+Please remove my order from processing.,ORDER_CANCEL
+I need to cancel the order I placed today.,ORDER_CANCEL
+Can you undo my last purchase?,ORDER_CANCEL
+Please cancel my delivery.,ORDER_CANCEL
+Why can't I cancel my order?,ORDER_CANCEL
+Where is the cancel button for my order?,ORDER_CANCEL
+I want to abort this order.,ORDER_CANCEL
+Please clear this order from my account.,ORDER_CANCEL
+I need to cancel my order right away.,ORDER_CANCEL
+Can I cancel my order if it's processing?,ORDER_CANCEL
+Please cancel the pending order.,ORDER_CANCEL
+"I don't need this product anymore, cancel it.",ORDER_CANCEL
+Can you cancel my order and give me a refund?,ORDER_CANCEL
+I want to cancel my online order.,ORDER_CANCEL
+Please stop the processing of my order.,ORDER_CANCEL
+I need to scrap my current order.,ORDER_CANCEL
+Can we cancel this order?,ORDER_CANCEL
+Please cancel my order immediately.,ORDER_CANCEL
+I'd like to cancel my order if possible.,ORDER_CANCEL
+Can you cancel order reference 77482?,ORDER_CANCEL
+Please drop order ID 11029.,ORDER_CANCEL
+I need to cancel the order I made last week.,ORDER_CANCEL
+Can I cancel my order before it leaves the warehouse?,ORDER_CANCEL
+"Please cancel my order, thank you.",ORDER_CANCEL
+bad product I want refund,REFUND_REQUEST
+how to request for refund,REFUND_REQUEST
+please initiate my refund,REFUND_REQUEST
+I want to request a refund,REFUND_REQUEST
+Order is cancelled how do I get my money back,REFUND_REQUEST
+give me my money back,REFUND_REQUEST
+please send my refund as soon as possible,REFUND_REQUEST
+I want a refund on my last order,REFUND_REQUEST
+I just want my money back,REFUND_REQUEST
+do a refund for me,REFUND_REQUEST
+I want a refund for my order.,REFUND_REQUEST
+Can I get my money back?,REFUND_REQUEST
+Please refund order number 4829.,REFUND_REQUEST
+I need a refund for transaction ID #99212.,REFUND_REQUEST
+Please credit my account for invoice 5543.,REFUND_REQUEST
+I would like a refund for reference code 00293.,REFUND_REQUEST
+How do I request a refund?,REFUND_REQUEST
+I want my money returned.,REFUND_REQUEST
+Please issue a refund for my purchase.,REFUND_REQUEST
+I need a reimbursement for this order.,REFUND_REQUEST
+"The item was broken, I want a refund.",REFUND_REQUEST
+"I never received my package, please refund me.",REFUND_REQUEST
+"This product is defective, give me my money back.",REFUND_REQUEST
+"I returned the items, when will I get my refund?",REFUND_REQUEST
+Can you reverse the charges on my card?,REFUND_REQUEST
+I want to claim a refund for this delivery.,REFUND_REQUEST
+Please process a refund for my last order.,REFUND_REQUEST
+"I was double charged, please refund the extra fee.",REFUND_REQUEST
+"This order is not what I expected, I want a refund.",REFUND_REQUEST
+Can I get a full refund for this service?,REFUND_REQUEST
+Please return the funds to my bank account.,REFUND_REQUEST
+I need a refund because the order was cancelled.,REFUND_REQUEST
+Is it possible to get a refund on this item?,REFUND_REQUEST
+I want to request a payback for my order.,REFUND_REQUEST
+Please credit my card back for order reference 77482.,REFUND_REQUEST
+I need to drop order ID 11029 and get a refund.,REFUND_REQUEST
+Why haven't I received my refund yet?,REFUND_REQUEST
+Where is my refund confirmation?,REFUND_REQUEST
+I want a refund for the missing items in my box.,REFUND_REQUEST
+Can you refund the shipping costs?,REFUND_REQUEST
+I need a refund for an unauthorized charge.,REFUND_REQUEST
+Please give me a store credit or a refund.,REFUND_REQUEST
+I want to cancel this subscription and get a refund.,REFUND_REQUEST
+"The package arrived late, I demand a refund.",REFUND_REQUEST
+How long does a refund take to process?,REFUND_REQUEST
+Please void this charge and refund me.,REFUND_REQUEST
+I am returning this item for a total refund.,REFUND_REQUEST
+Can you check the status of my refund request?,REFUND_REQUEST
+I need my money back for the order I placed yesterday.,REFUND_REQUEST
+Please put the money back on my original payment method.,REFUND_REQUEST
+I want a refund because the product quality is poor.,REFUND_REQUEST
+Can I get a refund if the box is opened?,REFUND_REQUEST
+Please issue a complete refund for this transaction.,REFUND_REQUEST
+I need to speak to someone about getting a refund.,REFUND_REQUEST
+Why was my refund request denied?,REFUND_REQUEST
+Please process my return and refund immediately.,REFUND_REQUEST
+I would like to request a refund for the broken item.,REFUND_REQUEST
+Can you refund my money for this order?,REFUND_REQUEST
+I want a refund for the package I sent back last week.,REFUND_REQUEST
+My payment failed,PAYMENT_FAILED
+my payment did not go through,PAYMENT_FAILED
+my payment is not working fails evey time,PAYMENT_FAILED
+my payment is not going through,PAYMENT_FAILED
+my payment is not processing,PAYMENT_FAILED
+my payment is not being accepted,PAYMENT_FAILED
+card declined,PAYMENT_FAILED
+my payment is declined,PAYMENT_FAILED
+something is wrong with my payment it failed,PAYMENT_FAILED
+why is payment failing,PAYMENT_FAILED
+My payment declined at checkout.,PAYMENT_FAILED
+Why did my transaction fail?,PAYMENT_FAILED
+The system rejected my credit card.,PAYMENT_FAILED
+My order didn't go through because of a payment error.,PAYMENT_FAILED
+It says my card was declined.,PAYMENT_FAILED
+"Please help, my payment won't go through.",PAYMENT_FAILED
+I keep getting a billing error at checkout.,PAYMENT_FAILED
+Why is my debit card being rejected?,PAYMENT_FAILED
+The checkout page says transaction failed.,PAYMENT_FAILED
+My payment method is not working.,PAYMENT_FAILED
+I got an error code during payment processing.,PAYMENT_FAILED
+Why was my credit card transaction blocked?,PAYMENT_FAILED
+My transaction failed but the money was taken from my account.,PAYMENT_FAILED
+The payment system keeps crashing when I try to buy.,PAYMENT_FAILED
+It says there's a problem with my billing details.,PAYMENT_FAILED
+My card payment keeps getting cancelled.,PAYMENT_FAILED
+Why can't I finish my purchase with Apple Pay?,PAYMENT_FAILED
+The website is saying payment authorization failed.,PAYMENT_FAILED
+I received a payment failure notification.,PAYMENT_FAILED
+My checkout timed out during payment.,PAYMENT_FAILED
+Why is PayPal rejecting my payment for order 4829?,PAYMENT_FAILED
+Transaction ID #99212 failed to process.,PAYMENT_FAILED
+Invoice 5543 is showing a payment error.,PAYMENT_FAILED
+My payment for reference code 00293 didn't go through.,PAYMENT_FAILED
+I tried to pay but it says insufficient funds.,PAYMENT_FAILED
+My card is active but the transaction is failing.,PAYMENT_FAILED
+Why won't the app accept my credit card details?,PAYMENT_FAILED
+I'm getting a 3D Secure verification failure.,PAYMENT_FAILED
+The payment gateway rejected my card.,PAYMENT_FAILED
+Why is my checkout button grayed out after entering my card?,PAYMENT_FAILED
+I got charged twice but the order says payment failed.,PAYMENT_FAILED
+My bank says they approved it but your site says failed.,PAYMENT_FAILED
+Can you check why my order failed processing?,PAYMENT_FAILED
+The payment screen keeps loop refreshing.,PAYMENT_FAILED
+Why is my international credit card failing?,PAYMENT_FAILED
+I am unable to complete my payment.,PAYMENT_FAILED
+The transaction was aborted by the payment processor.,PAYMENT_FAILED
+My payment details are correct but it still declines.,PAYMENT_FAILED
+It says my card expired but it hasn't.,PAYMENT_FAILED
+Why did my card fail on order reference 77482?,PAYMENT_FAILED
+Order ID 11029 is showing a failed status due to billing.,PAYMENT_FAILED
+I tried three different cards and they all failed.,PAYMENT_FAILED
+The payment failed message says CVV incorrect.,PAYMENT_FAILED
+Why did my digital wallet payment fail?,PAYMENT_FAILED
+The system won't validate my billing zip code.,PAYMENT_FAILED
+I need help fixing a checkout payment error.,PAYMENT_FAILED
+My corporate card is failing at payment.,PAYMENT_FAILED
+Why is my bank blocking this transaction?,PAYMENT_FAILED
+The transaction error says payment gateway timeout.,PAYMENT_FAILED
+I cannot buy this item because my transaction keeps failing.,PAYMENT_FAILED
+I cant login,ACCOUNT_ACCESS
+I am unable to login,ACCOUNT_ACCESS
+my account is locked,ACCOUNT_ACCESS
+my account is disabled,ACCOUNT_ACCESS
+my account is suspended,ACCOUNT_ACCESS
+my account is not working cant log in,ACCOUNT_ACCESS
+my account is not accessible,ACCOUNT_ACCESS
+my account is not opening,ACCOUNT_ACCESS
+my account is not letting me in,ACCOUNT_ACCESS
+my account is not allowing me to login,ACCOUNT_ACCESS
+I cannot access my profile.,ACCOUNT_ACCESS
+The system won't let me sign in.,ACCOUNT_ACCESS
+Why is my account disabled?,ACCOUNT_ACCESS
+My login credentials are not working.,ACCOUNT_ACCESS
+I am locked out of my account.,ACCOUNT_ACCESS
+It says my username doesn't exist.,ACCOUNT_ACCESS
+Why can't I log into the app?,ACCOUNT_ACCESS
+I forgot the email I used for my account.,ACCOUNT_ACCESS
+The login page keeps throwing an error.,ACCOUNT_ACCESS
+I need help recovering my account.,ACCOUNT_ACCESS
+My two-factor authentication code isn't working.,ACCOUNT_ACCESS
+I am getting an invalid password error.,ACCOUNT_ACCESS
+How do I unblock my account?,ACCOUNT_ACCESS
+I can't pass the verification step to sign in.,ACCOUNT_ACCESS
+"My account was suspended, how do I log in?",ACCOUNT_ACCESS
+I need to update my login email address.,ACCOUNT_ACCESS
+The site says too many failed login attempts.,ACCOUNT_ACCESS
+I can't get past the sign-in screen.,ACCOUNT_ACCESS
+Why does it say session expired when I try to log in?,ACCOUNT_ACCESS
+I lost my 2FA backup codes.,ACCOUNT_ACCESS
+Can you unlock my user profile?,ACCOUNT_ACCESS
+I can't sign in with my Google account anymore.,ACCOUNT_ACCESS
+The login button is completely broken.,ACCOUNT_ACCESS
+I keep getting looped back to the login page.,ACCOUNT_ACCESS
+It says access denied when I try to log in.,ACCOUNT_ACCESS
+I can't remember my security questions.,ACCOUNT_ACCESS
+My biometrics are not letting me log in.,ACCOUNT_ACCESS
+Is the login server down right now?,ACCOUNT_ACCESS
+I need to recover access to my old account.,ACCOUNT_ACCESS
+The verification text code never arrives.,ACCOUNT_ACCESS
+Why did my account lock automatically?,ACCOUNT_ACCESS
+I am unable to sign into my dashboard.,ACCOUNT_ACCESS
+It says my account is temporarily restricted.,ACCOUNT_ACCESS
+Can someone help me clear my login block?,ACCOUNT_ACCESS
+I can't log in on my new phone.,ACCOUNT_ACCESS
+The password field keeps clearing out.,ACCOUNT_ACCESS
+Why is it saying unauthorized access on my account?,ACCOUNT_ACCESS
+I can't log in to check my order history.,ACCOUNT_ACCESS
+Please help me log into my profile.,ACCOUNT_ACCESS
+My saved login information isn't working.,ACCOUNT_ACCESS
+The app won't accept my passcode.,ACCOUNT_ACCESS
+How do I regain access to my locked account?,ACCOUNT_ACCESS
+I cannot log in to change my settings.,ACCOUNT_ACCESS
+My account has been deactivated.,ACCOUNT_ACCESS
+I am having trouble signing in to my portal.,ACCOUNT_ACCESS
+It keeps rejecting my login attempt.,ACCOUNT_ACCESS
+Why is my profile blocked from entering?,ACCOUNT_ACCESS
+I am completely locked out of my user panel.,ACCOUNT_ACCESS
+how do I reset my password,PASSWORD_RESET
+I forgot my password,PASSWORD_RESET
+how do I change my password,PASSWORD_RESET
+how do I recover my password,PASSWORD_RESET
+how do I retrieve my password,PASSWORD_RESET
+I want get my password back,PASSWORD_RESET
+I forgot my password how do I recover it,PASSWORD_RESET
+I want to reset my password I have lost it,PASSWORD_RESET
+I need to reset my password,PASSWORD_RESET
+I want to change my password,PASSWORD_RESET
+I want to update my passcode.,PASSWORD_RESET
+Please send me a password reset link.,PASSWORD_RESET
+I can't remember my password.,PASSWORD_RESET
+Where do I go to reset my password?,PASSWORD_RESET
+I need a new password for my account.,PASSWORD_RESET
+Can you help me reset my login credentials?,PASSWORD_RESET
+I forgot my sign-in password.,PASSWORD_RESET
+I didn't receive the password reset email.,PASSWORD_RESET
+Why is my password reset link invalid?,PASSWORD_RESET
+My password reset link expired.,PASSWORD_RESET
+I need to recover my password.,PASSWORD_RESET
+Can you send a temporary password?,PASSWORD_RESET
+The password reset token is not working.,PASSWORD_RESET
+How can I generate a new password?,PASSWORD_RESET
+I am trying to reset my password but getting an error.,PASSWORD_RESET
+Where is the forgot password button?,PASSWORD_RESET
+I want to wipe my current password and create a new one.,PASSWORD_RESET
+Please clear my old password so I can set a new one.,PASSWORD_RESET
+I need to reset my password via SMS code.,PASSWORD_RESET
+Can I reset my password without my old email?,PASSWORD_RESET
+How long does the password reset email take to arrive?,PASSWORD_RESET
+The system won't let me update my password.,PASSWORD_RESET
+I need to bypass my current password to reset it.,PASSWORD_RESET
+My password reset request keeps failing.,PASSWORD_RESET
+Can you trigger a password reset for me?,PASSWORD_RESET
+I got a password reset email but I didn't request it.,PASSWORD_RESET
+I want to change my security password.,PASSWORD_RESET
+I need help setting a new password.,PASSWORD_RESET
+How do I override my forgotten password?,PASSWORD_RESET
+I'm trying to change my login password.,PASSWORD_RESET
+Where is the option to reset my credentials?,PASSWORD_RESET
+The password reset wizard is stuck.,PASSWORD_RESET
+I need a password reset confirmation code.,PASSWORD_RESET
+Can I change my password from the login screen?,PASSWORD_RESET
+I forgot the passkey for my account.,PASSWORD_RESET
+Please assist with a password reset.,PASSWORD_RESET
+I am locked out because I forgot my password.,PASSWORD_RESET
+Why won't the app accept my new password?,PASSWORD_RESET
+I want to reset my account passcode immediately.,PASSWORD_RESET
+How do I get a password reset link sent to my phone?,PASSWORD_RESET
+My password reset text message never came.,PASSWORD_RESET
+I need to modify my account password.,PASSWORD_RESET
+Can an admin reset my password for me?,PASSWORD_RESET
+I'm trapped in a password reset loop.,PASSWORD_RESET
+I forgot my password and my security answers.,PASSWORD_RESET
+Please guide me through the password reset process.,PASSWORD_RESET
+I need to set up a brand new password.,PASSWORD_RESET
